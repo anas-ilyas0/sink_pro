@@ -15,6 +15,9 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
 
 flutter_launcher_icons:
   android: true
@@ -22,10 +25,8 @@ flutter_launcher_icons:
   image_path: 'assets/images/sinkprolink.png'
   adaptive_icon_foreground: 'assets/images/sinkprolink.png'
   adaptive_icon_background: '#000024'
+  remove_alpha_ios: true
 
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^5.0.0
 flutter:
   uses-material-design: true
 
