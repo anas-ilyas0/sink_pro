@@ -91,19 +91,21 @@ class HomeScreen extends StatelessWidget {
                             ),
                           );
                           await Future.delayed(const Duration(seconds: 2));
-                          Navigator.pop(context);
+                          if (context.mounted) Navigator.pop(context);
                           final Uri sinkProUrl =
                               Uri.parse(AppConstants.sinkProUrl);
                           try {
                             await launchUrl(sinkProUrl,
                                 mode: LaunchMode.externalApplication);
                           } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Could not launch Sink Pro'),
-                                dismissDirection: DismissDirection.horizontal,
-                              ),
-                            );
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Could not launch Sink Pro'),
+                                  dismissDirection: DismissDirection.horizontal,
+                                ),
+                              );
+                            }
                           }
                         },
                         child: Text(
@@ -131,19 +133,21 @@ class HomeScreen extends StatelessWidget {
                         ),
                       );
                       await Future.delayed(const Duration(seconds: 2));
-                      Navigator.pop(context);
+                      if (context.mounted) Navigator.pop(context);
                       final Uri privacyPolicy =
                           Uri.parse(AppConstants.privacyPolicy);
                       try {
                         await launchUrl(privacyPolicy,
                             mode: LaunchMode.externalApplication);
                       } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Could not launch privacy policy'),
-                            dismissDirection: DismissDirection.horizontal,
-                          ),
-                        );
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Could not launch privacy policy'),
+                              dismissDirection: DismissDirection.horizontal,
+                            ),
+                          );
+                        }
                       }
                     },
                     child: Text(
